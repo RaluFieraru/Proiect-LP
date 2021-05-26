@@ -161,10 +161,10 @@ def play(x,y):
                 score.write("Tie", move=False, align="center", font=("Arial", 50, "normal"))
             elif r == 1:
                 screen.clear()
-                score.write("  Congrats, Player 1 wins", move=False, align="center", font=("Arial", 50, "normal"))
+                score.write("  Congrats, Player 1 wins", move=False, align="center", font=("Arial", 40, "normal"))
             elif r == -1:
                 screen.clear()
-                score.write("  Congrats, Player 2 wins", move=False, align="center", font=("Arial", 50, "normal"))
+                score.write("  Congrats, Player 2 wins", move=False, align="center", font=("Arial", 40, "normal"))
             turn = -turn
     working = False
 
