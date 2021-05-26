@@ -49,7 +49,22 @@ def draw_circle(x,y,r,color):
 def draw_board():
     draw_rectangle(STARTX,STARTY,WIDTH,HEIGHT,'light blue')
 
-
+def draw_pieces():
+    global board
+    row_gap = HEIGHT/ROWS
+    col_gap = WIDTH/COLS
+    Y = STARTY + row_gap / 2;
+    for i in range(ROWS):
+        X = STARTX + col_gap/2
+        for j in range(COLS):
+            if board[i][j] == 0:
+                draw_circle(X,Y,row_gap/3,'white')
+            elif board[i][j] == 1:
+                draw_circle(X,Y,row_gap/3,'black')
+            else:
+                draw_circle(X,Y,row_gap/3,'purple')
+            X += col_gap
+        Y += row_gap
 
 def draw():
     draw_board()
@@ -104,7 +119,33 @@ def init_board():
             row.append(0)
         board.append(row)
 
-
+def place_piece_and_draw(bb,turn,col):
+    row = place_piece(bb,turn,col)
+    row_gap = HEIGHT/ROWS
+    col_gap = WIDTH/COLS
+    Y = STARTY + row_gap*row + row_gap / 2;
+    X = STARTX + col_gap*col + col_gap/2
+    i = row
+    j = col
+    if board[i][j] == 0:
+        draw_circle(X,Y,row_gap/3,'white')
+    elif board[i][j] == 1:
+        for k in range(5):
+            draw_circle(X,Y,row_gap/3,'white')
+            screen.update()
+            time.sleep(0.05)
+            draw_circle(X,Y,row_gap/3,'black')
+            screen.update()
+            time.sleep(0.05)
+    else:
+        for k in range(5):
+            draw_circle(X,Y,row_gap/3,'white')
+            screen.update()
+            time.sleep(0.05)
+            draw_circle(X,Y,row_gap/3,'purple')
+            screen.update()
+            time.sleep(0.05)
+    return row
 
 
 
