@@ -165,10 +165,8 @@ def play(x,y):
             elif r == -1:
                 screen.clear()
                 score.write("  Congrats, Player 2 wins", move=False, align="center", font=("Arial", 50, "normal"))
-
             turn = -turn
     working = False
-
 
 board = []
 init_board()
