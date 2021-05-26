@@ -4,7 +4,7 @@ import time
 screen = turtle.Screen()
 screen.setup(700, 700)
 screen.setworldcoordinates(-450, -450, 450, 450)
-
+screen.title("Connect 4 - Dandu - Fieraru - Fratila")
 turtle.speed(0)
 turtle.hideturtle()
 screen.tracer(0, 0)
@@ -12,9 +12,29 @@ score = turtle.Turtle()
 score.up()
 score.hideturtle()
 
+ROWS = 6
+COLS = 7
+STARTX = -450
+STARTY = -450 * ROWS / COLS
+WIDTH = -2 * STARTX
+HEIGHT = -2 * STARTY
 
-
-
+def draw_rectangle(x,y,w,h,color):
+    turtle.up()
+    turtle.goto(x,y)
+    turtle.seth(0)
+    turtle.down()
+    turtle.fillcolor(color)
+    turtle.begin_fill()
+    turtle.fd(w)
+    turtle.left(90)
+    turtle.fd(h)
+    turtle.left(90)
+    turtle.fd(w)
+    turtle.left(90)
+    turtle.fd(h)
+    turtle.left(90)
+    turtle.end_fill()
 
 def draw_circle(x,y,r,color):
     turtle.up()
@@ -26,7 +46,8 @@ def draw_circle(x,y,r,color):
     turtle.circle(r,360,150)
     turtle.end_fill()
 
-
+def draw_board():
+    draw_rectangle(STARTX,STARTY,WIDTH,HEIGHT,'light blue')
 
 
 
