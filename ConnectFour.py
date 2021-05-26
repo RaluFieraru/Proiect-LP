@@ -2,7 +2,7 @@ import turtle
 import time
 
 screen = turtle.Screen()
-screen.setup(700, 700)
+screen.setup(650, 650)
 screen.setworldcoordinates(-450, -450, 450, 450)
 screen.title("Connect 4 - Dandu - Fieraru - Fratila")
 turtle.speed(0)
@@ -62,7 +62,7 @@ def draw_pieces():
             elif board[i][j] == 1:
                 draw_circle(X,Y,row_gap/3,'black')
             else:
-                draw_circle(X,Y,row_gap/3,'purple')
+                draw_circle(X,Y,row_gap/3,'red')
             X += col_gap
         Y += row_gap
 
@@ -142,7 +142,7 @@ def place_piece_and_draw(bb,turn,col):
             draw_circle(X,Y,row_gap/3,'white')
             screen.update()
             time.sleep(0.05)
-            draw_circle(X,Y,row_gap/3,'purple')
+            draw_circle(X,Y,row_gap/3,'red')
             screen.update()
             time.sleep(0.05)
     return row
