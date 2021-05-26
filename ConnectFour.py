@@ -147,6 +147,27 @@ def place_piece_and_draw(bb,turn,col):
             time.sleep(0.05)
     return row
 
+def play(x,y):
+    global turn, working
+    if working: return
+    working = True
+    cols = [900/7*i-450+900/14 for i in range(7)]
+    for i in range(len(cols)):
+        if abs(x-cols[i]) < 900/14*2/3 and board[ROWS-1][i]==0:
+            rn = place_piece_and_draw(board, turn, i)
+            r = game_over_lastmove(board, turn, rn, i)
+            if r == 0:
+                screen.clear()
+                score.write("Tie", move=False, align="center", font=("Arial", 50, "normal"))
+            elif r == 1:
+                screen.clear()
+                score.write("  Congrats, Player 1 wins", move=False, align="center", font=("Arial", 50, "normal"))
+            elif r == -1:
+                screen.clear()
+                score.write("  Congrats, Player 2 wins", move=False, align="center", font=("Arial", 50, "normal"))
+
+            turn = -turn
+    working = False
 
 
 board = []
